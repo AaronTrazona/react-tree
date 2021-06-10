@@ -1,24 +1,76 @@
 import React from 'react';
-import logo from './logo.svg';
+import Tree from './components/Tree'
 import './App.css';
+
+const treeData = [
+  {
+    label: 'Animals',
+    subTree: [
+      {
+        label: 'Birds',
+        subTree: []
+      },
+      {
+        label: 'Mammals',
+        subTree: [
+          {
+            label: 'Elephant',
+            subTree: []
+          },
+          {
+            label: 'Dolphin',
+            subTree: [
+              {
+                label: 'Chicken',
+                subTree: [
+                  {
+                    label: 'Dog',
+                    subTree: []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        label: 'Reptiles',
+        subTree: []
+      }
+    ]
+  },
+  {
+    label: 'Plants',
+    subTree: [
+      {
+        label: 'Flowers',
+        subTree: [
+          {
+            label: 'Rose',
+            subTree: []
+          },
+          {
+            label: 'Tulip',
+            subTree: []
+          }
+        ]
+      },
+      {
+        label: 'Trees',
+        subTree: []
+      }
+    ]
+  }
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        treeData.map((each, index) => {
+          return <Tree data={each} key={index}/>
+        })
+      } 
     </div>
   );
 }
